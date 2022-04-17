@@ -1,4 +1,4 @@
-// NAV
+// MENU
 // Disable animation on first page load
 setTimeout(() => {
     document.body.classList.remove('prealoadAni');
@@ -9,6 +9,7 @@ const menuHamBx = document.querySelector('.menu__hamBx');
 const body = document.querySelector('body');
 const nav = document.querySelector('.nav');
 
+// If device is larger than 767px, delete inline height
 function getWW(w){
     if(w < 767){
         nav.setAttribute('style', 'height: 110px');
@@ -19,6 +20,7 @@ function getWW(w){
     pushW(w);
 }
 
+// Cliked on hamburger menu
 menuHamBx.addEventListener('click', () => {
     // console.log('cliked to mobile menu');
 
@@ -40,7 +42,7 @@ menuHamBx.addEventListener('click', () => {
     }
 })
 
-// Mobile links animation
+// Mobile menu dropdown links
 function pushW(w){
     if(w < 767){
         const mDropdown = document.querySelectorAll('.mDropdown');
