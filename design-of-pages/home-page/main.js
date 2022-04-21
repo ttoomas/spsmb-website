@@ -20,9 +20,9 @@ function getWW(w){
     pushW(w);
 }
 
-// Cliked on hamburger menu
+// Clicked on hamburger menu
 menuHamBx.addEventListener('click', () => {
-    // console.log('cliked to mobile menu');
+    // console.log('clicked to mobile menu');
 
     if(body.classList.contains('noscroll')){
         body.classList.remove('noscroll');
@@ -104,3 +104,56 @@ window.addEventListener('scroll', () => {
         nav.classList.add('start-nav');
     }
 })
+
+
+//=== HEADER
+const headerBxs = document.querySelectorAll('.header__bx');
+const prevBtn = document.querySelector('.headerBtn-prev');
+const nextBtn = document.querySelector('.headerBtn-next')
+let autoHeaderMove;
+
+let index = 0;
+headerBxs[index].classList.add('acHeader');
+
+function prevHeader(){
+    headerBxs[index].style.animation = null;
+    headerBxs[index].style.animation = "headerOutPrev 500ms ease-in-out forwards";
+    index = index === 0 ? headerBxs.length - 1 : index - 1;
+    headerBxs[index].style.animation = "headerInPrev 500ms ease-in-out forwards";
+}
+
+function nextHeader(){
+    headerBxs[index].style.animation = null;
+    headerBxs[index].style.animation = "headerOutNext 500ms ease-in-out forwards";
+    index = index === headerBxs.length - 1 ? 0 : index + 1;
+    headerBxs[index].style.animation = "headerInNext 500ms ease-in-out forwards";
+}
+
+// Click listeners on arrows
+prevBtn.addEventListener('click', () => {
+    prevHeader();
+    prevBtn.disabled = true;
+    clearInterval(autoHeaderMove);
+    setTimeout(function(){
+        prevBtn.disabled = false;
+        autoHeaderStart();
+    }, 800);
+});
+
+nextBtn.addEventListener('click', () => {
+    nextHeader();
+    nextBtn.disabled = true;
+    clearInterval(autoHeaderMove);
+    setTimeout(function(){
+        nextBtn.disabled = false;
+        autoHeaderStart();
+    }, 800);
+});
+
+// Auto header move
+function autoHeaderStart(){
+    autoHeaderMove = setInterval(function(){
+        nextHeader();
+    }, 5000);
+}
+autoHeaderStart();

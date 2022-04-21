@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
-:root{
+/* :root{
     
-}
+} */
 
 html{
     font-size: 100%;
@@ -17,10 +17,7 @@ body{
     font-family: 'Open Sans', sans-serif;;
     font-weight: 400;
     font-size: 17px;
-    background-color: lightblue;
-
-    /* Del */
-    min-height: 200vh;
+    background-color: black;
 }
 
 body.prealoadAni *{
@@ -31,6 +28,9 @@ body.prealoadAni *{
 a{
     color: black;
     text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
 }
 .noscroll{
     overflow: hidden;
@@ -57,12 +57,13 @@ a{
     }
 }
 
-/* MENU */
+/*--- MENU ---*/
 /* Global set */
 .nav{
     background-color: white;
     position: fixed;
-    width: 100%
+    width: 100%;
+    z-index: 999;
 }
 .menu__logoBx{
     display: flex;
@@ -386,5 +387,270 @@ a{
     }
     .menu__hamBx.menuOpened .menu__ham{
         width: 2.375rem;
+    }
+}
+
+/*--- HEADER - SLIDESHOW ---*/
+.header__container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+.header__bx{
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.header__bx.acHeader{
+    opacity: 1;
+    transform: translateX(0);
+}
+.header__bx.preHeader{
+    animation: headerOut 500ms ease-in-out forwards;
+}
+
+/* keyframes */
+@keyframes headerInNext {
+    from{
+        transform: translateX(100%);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes headerOutNext {
+    from{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+@keyframes headerInPrev {
+    from{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes headerOutPrev {
+    from{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(100%);
+        opacity: 1;
+    }
+}
+/* end - keyframes */
+
+.header__overlay{
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, 0.7);
+}
+.header__info{
+    position: absolute;
+    top: 45%;
+    transform: translateY(-40%);
+    padding: 0 1.375rem;
+    color: white;
+}
+.header__title{
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-bottom: 2.375rem;
+    font-weight: 400;
+}
+.header__link{
+    color: black;
+    background-color: white;
+    font-size: 1rem;
+    padding: 1rem;
+    position: relative;
+    display: inline-block;
+}
+.header__link::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+    pointer-events: none;
+    transition: all 200ms ease-in-out;
+}
+.header__link:hover::after{
+    top: 0px;
+    left: 0px;
+}
+
+.header__btnBx{
+    position: absolute;
+    bottom: 2.25rem;
+    width: 100%;
+    padding: 0 0.625rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header__btn{
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    display: flex;
+    cursor: pointer;
+}
+.headerBtn-next{
+    transform: rotate(180deg);
+}
+.headerBtn__icon{
+    width: 3.5rem;
+}
+
+.header__down{
+    display: none;
+}
+
+
+@media only screen and (min-width: 22em) and (max-width: 47.9375em){
+    .header__info{
+        top: 40%;
+    }
+    .header__title{
+        font-size: 2.375rem;
+        line-height: 3rem;
+    }
+    .header__link{
+        font-size: 1.125rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 48em){
+    .header__info{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 0 0 2.125rem;
+        width: 65%;
+    }
+    .header__title{
+        font-size: 2.5rem;
+        margin-bottom: 2.875rem;
+        line-height: 2.875rem;
+    }
+    .header__link{
+        font-size: 1.125rem;
+        padding: 1.25rem 1.375rem;
+    }
+    .header__btnBx{
+        bottom: unset;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0 1rem;
+    }
+    .headerBtn__icon{
+        width: 3.875rem;
+    }
+    .header__downBx{
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .header__down{
+        display: block;
+        position: relative;
+        width: 1.9375rem;
+        height: 3.5rem;
+        border: 0.125rem solid white;
+        border-radius: 2rem;
+    }
+    .header__down::before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        left: 50%;
+        top: 20%;
+        transform: translateX(-50%);
+        opacity: 0;
+        animation: goDownAni 2.75s infinite;
+    }
+}
+
+@keyframes goDownAni{
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media only screen and (min-width: 62em){
+    .header__info{
+        width: max-content;
+        padding: 0;
+    }
+    .header__title{
+        font-size: 2.875rem;
+        margin-bottom: 2.375rem;
+        line-height: normal;
+    }
+
+    .header__btnBx{
+        padding: 0 1.625rem;
+    }
+    .headerBtn__icon{
+        width: 4.125rem;
+        transition: transform 170ms ease-in-out;
+    }
+    .headerBtn-prev:hover .headerBtn__icon{
+        transform: translateX(-4px);
+    }
+    .headerBtn-next:hover .headerBtn__icon{
+        transform: translateX(-4px);
+    }
+}
+
+@media only screen and (min-width: 81em){
+    .header__info{
+        top: 50%;
+        left: 17rem;
+        transform: translate(0, -50%);
     }
 }
