@@ -5,9 +5,11 @@ My plans for this project
 ### Todo
 
 - [ ] Colors
-- [ ] Header - slideshow
+- [ ] Improve header, add texts and images
 - [ ] Footer
 
 ### Done ✓
 
 - [x] Nav
+- [x] Header - slideshow
+- [x] Article section
