@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Github Preview | SPSMB</title>
+
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .link{
+                font-size: 3rem;
+                color: black;
+                text-decoration: none;
+                position: relative;
+            }
+            .link::before{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 80%;
+                height: 5px;
+                bottom: -10px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                background-color: black;
+                pointer-events: none;
+                transition: all 230ms ease-in-out;
+            }
+            .link:hover::before{
+                width: 20%;
+            }
+        </style>
+</head>
+<body>
+
+    <a href="./design-of-pages/home-page/index.html" class="link">Home Page</a>
+        
+</body>
+</html>

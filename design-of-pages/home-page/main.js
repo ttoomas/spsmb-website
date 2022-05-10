@@ -106,7 +106,8 @@ window.addEventListener('scroll', () => {
 })
 
 
-//=== HEADER
+
+// HEADER
 const headerBxs = document.querySelectorAll('.header__bx');
 const prevBtn = document.querySelector('.headerBtn-prev');
 const nextBtn = document.querySelector('.headerBtn-next')

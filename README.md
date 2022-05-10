@@ -2,4 +2,4 @@
 
 ## Check out the TODO.md for my future plans
 
-Live website: [Github Pages](https://ttoomas.github.io/SPSMB-Website)
+Live website: [Github Pages](https://ttoomas.github.io/spsmb-website)
