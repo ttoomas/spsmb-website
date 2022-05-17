@@ -158,3 +158,49 @@ function autoHeaderStart(){
     }, 5000);
 }
 autoHeaderStart();
+
+
+// ABOUT 3D SECTION
+const aboutContainers = document.querySelectorAll('.about__3dContainer');
+
+aboutContainers.forEach(aboutContainer => {
+    let aboutBx = aboutContainer.querySelector('.about__box');
+    let mouseX;
+    let mouseY;
+    let transformAmount = 4;
+
+    function handleMouseEnter(){
+        setTimeout(() => {
+            aboutBx.style.transition = "";
+        }, 100);
+        
+        aboutBx.style.transition = "transform 0.1s";
+    }
+
+    function transformMouseMove(mouse){
+        mouseX = mouse.pageX;
+        mouseY = mouse.pageY;
+
+        let centerX = aboutContainer.offsetLeft + aboutContainer.clientWidth / 2;
+        let centerY = aboutContainer.offsetTop + aboutContainer.clientHeight / 2;
+
+        let percentX = (mouseX - centerX) / (aboutContainer.clientWidth / 2);
+        let percentY = -((mouseY - centerY) / (aboutContainer.clientHeight / 2));
+
+        aboutBx.style.transform = "perspective(400px) rotateY(" + percentX * transformAmount + "deg) rotateX(" + percentY * transformAmount + "deg)";
+    }
+
+    function handleMouseLeave(){
+        aboutBx.style.transition = "transform 0.1s";
+
+        setTimeout(() => {
+            aboutBx.style.transition = "";
+        }, 100);
+
+        aboutBx.style.transform = "perspective(400px) rotateX(0deg) rotateY(0deg)";
+    }
+
+    aboutContainer.addEventListener('mouseenter', handleMouseEnter);
+    aboutContainer.addEventListener('mousemove', transformMouseMove);
+    aboutContainer.addEventListener('mouseleave', handleMouseLeave);
+})
