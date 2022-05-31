@@ -6,7 +6,7 @@ My plans for this project
 
 - [ ] Colors
 - [ ] Improve header, add texts and images
-- [ ] Improve about section
+- [ ] Important section
 - [ ] Footer
 
 ### Done ✓
@@ -15,3 +15,4 @@ My plans for this project
 - [x] Header - slideshow
 - [x] Article section
 - [x] About section
+- [x] Improve about section

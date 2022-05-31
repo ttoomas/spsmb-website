@@ -7,6 +7,7 @@
 html{
     font-size: 100%;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 *, *::before, *::after{
     box-sizing: inherit;
@@ -77,24 +78,29 @@ h1, h2, h3, h4, h5, h6, p{
         padding: 2.625rem 1.25rem;
     }
 }
-@media only screen and (min-width: 33em){
+@media only screen and (min-width: 33em) and (max-width: 47.9375em){
     .global__container{
         padding: 2.875rem 1.875rem;
     }
 }
-@media only screen and (min-width: 48em){
+@media only screen and (min-width: 48em) and (max-width: 80.9375em){
     .global__container{
         padding: 2.625rem 3.375rem 3.625rem 3.375rem;
     }
 }
-@media only screen and (min-width: 81em){
+@media only screen and (min-width: 81em) and (max-width: 93.4375em){
     .global__container{
         padding: 3rem 4.625rem 3.875rem 4.625rem;
     }
 }
-@media only screen and (min-width: 93.5em){
+@media only screen and (min-width: 93.5em) and (max-width: 108.9375em){
     .global__container{
         padding: 3.375rem 8.5rem 4.125rem 8.5rem;
+    }
+}
+@media only screen and (min-width: 109em){
+    .global__container{
+        padding: 3.75rem 11rem 5rem 11rem;
     }
 }
 
@@ -432,6 +438,19 @@ h1, h2, h3, h4, h5, h6, p{
         width: 2.375rem;
     }
 }
+
+@media only screen and (min-width: 62em){
+    .menu__logo{
+        transition: transform 200ms ease-in-out, width 200ms ease-in-out;
+    }
+    .scroll-on-nav .menu__logo{
+        transition: width 200ms ease-in-out, transform 200ms ease-in-out;
+    }
+    .menu__logo:hover{
+        transform: scale(1.06) translateX(0.25rem);
+    }
+}
+
 
 /*--- HEADER - SLIDESHOW ---*/
 .header__container{
@@ -899,7 +918,7 @@ h1, h2, h3, h4, h5, h6, p{
 }
 .about__grid{
     display: grid;
-    grid-row-gap: 1.5rem;
+    grid-row-gap: 1.75rem;
 }
 .about__box{
     background-repeat: no-repeat;
@@ -907,103 +926,184 @@ h1, h2, h3, h4, h5, h6, p{
     background-size: cover;
 }
 .about__overlay{
-    background-color: hsla(0, 0%, 0%, 0.45);
+    background-color: hsla(0, 0%, 0%, 0.6);
 }
 .about__content{
-    padding: 1rem;
+    padding: 1rem 1.375rem 1.25rem 1rem;
     color: white;
 }
 .about__title{
-    font-size: 1.5625rem;
-    font-weight: 600;
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.about__textBx{
+    display: flex;
+    flex-direction: column;
 }
 .about__text{
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.25rem;
     margin-bottom: 0.875rem;
 }
 .about__link{
     display: flex;
-    justify-content: flex-end;
+    align-self: flex-end;
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.35px;
     color: white;
 }
 
+
+@media only screen and (min-width: 18.75em){
+    .about__content{
+        padding: 1.125rem 1.5rem 1.375rem 1.125rem;
+    }
+    .about__title{
+        font-size: 1.5625rem;
+    }
+    .about__text{
+        font-size: 0.9375rem;
+    }
+    .about__text{
+        margin-bottom: 1.125rem;
+    }
+}
+
 @media only screen and (min-width: 48em){
     .about__grid{
-        grid-row-gap: 2rem;
+        grid-row-gap: 2.25rem;
+    }
+    .about__content{
+        padding: 1.375rem 2rem 1.625rem 1.5rem;
+    }
+    .about__title{
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    .about__text{
+        font-size: 1rem;
+        line-height: 1.4375rem;
+        margin-bottom: 1.25rem;
+    }
+    .about__link{
+        font-size: 1.125rem;
+        letter-spacing: 0.55px;
+    }
+}
+
+@media only screen and (min-width: 62em){
+    .about{
+        padding: 2.625rem 5rem 3.625rem 5rem;
+    }
+    .about__grid{
+        grid-row-gap: 2.5rem;
     }
     .about__box{
-        transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
         transform-style: preserve-3d;
     }
     .about__content{
+        padding: 1.625rem 3.125rem 1.875rem 2.25rem;
         position: relative;
     }
     .about__title{
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1.25);
+        font-size: 1.875rem;
         text-transform: uppercase;
         margin-bottom: 0;
-        transition: all 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96);
-        transition-delay: 50ms;
+
+        transition: transform 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96), top 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96);
+        transition-delay: 100ms;
     }
     .about__textBx{
         opacity: 0;
         visibility: hidden;
-        margin-top: 36px;
+        margin-top: 3.375rem;
         transform: translate(-10px, 10px);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        transition: all 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96);
-        transition-delay: 0ms;
 
-        /* cool 3d animation */
-        /* transform: translateZ(80px) scale(0.8);
-        transform-style: preserve-3d; */
+        transition: transform 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96), visibility 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96), opacity 300ms cubic-bezier(0.62,-0.01, 0.38, 0.96);
+        transition-delay: 0ms;
+    }
+    .about__text{
+        font-size: 1.0625rem;
+        line-height: 1.5625rem;
+        letter-spacing: 0.2px;
+        margin-bottom: 1.375rem;
     }
     .about__link{
         align-self: flex-end;
     }
-    .about__box:hover .about__title{
-        top: 30px;
+
+    .about__3dContainer:hover .about__title{
+        top: 2.875rem;
         transition-delay: 0ms;
+        transform: translate(-50%, -50%) scale(1);
     }
-    .about__box:hover .about__textBx{
+    .about__3dContainer:hover .about__textBx{
         opacity: 1;
         visibility: visible;
         transform: translate(0, 0);
-        transition-delay: 50ms;
+        transition-delay: 100ms;
     }
 }
 
-@media only screen and (min-width: 81em){
+@media only screen and (min-width: 74em){
+    .about{
+        padding: 3.125rem 8.5rem 3.875rem 8.5rem;
+    }
+}
+
+@media only screen and (min-width: 86em){
+    .about{
+        padding: 3.25rem 5rem 4rem 5rem;
+    }
     .about__grid{
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 2.5rem 3.5rem;
+        grid-gap: 3.625rem 3.125rem;
     }
     .about__content{
-        padding: 1.625rem 1.5rem 2.125rem 1.5rem;
+        padding: 1.625rem 1.75rem 2.125rem 1.625rem;
     }
     .about__title{
         font-size: 2.125rem;
     }
     .about__textBx{
-        margin-top: 3.25rem;
+        margin-top: 3.5rem;
     }
     .about__text{
         font-size: 1rem;
-        letter-spacing: 0.4px;
-        line-height: 1.375rem;
+        letter-spacing: 0.25px;
+        line-height: 1.55rem;
     }
 
     .about__box:hover .about__title{
-        top: 2.625rem;
+        top: 3.0625rem;
+    }
+}
+
+@media only screen and (min-width: 95.5em){
+    .about{
+        padding: 3.75rem 10.5rem 4.25rem 10.5rem;
+    }
+}
+
+@media only screen and (min-width: 109em){
+    .about{
+        padding: 4.25rem 14.25rem 4.875rem 14.25rem;
+    }
+    .about__grid{
+        grid-gap: 3.875rem 3.5rem;
+    }
+    .about__textBx{
+        margin-top: 3.75rem;
     }
 }

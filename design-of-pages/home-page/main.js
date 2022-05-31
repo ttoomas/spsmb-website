@@ -173,7 +173,7 @@ aboutContainers.forEach(aboutContainer => {
         setTimeout(() => {
             aboutBx.style.transition = "";
         }, 100);
-        
+
         aboutBx.style.transition = "transform 0.1s";
     }
 
@@ -187,7 +187,7 @@ aboutContainers.forEach(aboutContainer => {
         let percentX = (mouseX - centerX) / (aboutContainer.clientWidth / 2);
         let percentY = -((mouseY - centerY) / (aboutContainer.clientHeight / 2));
 
-        aboutBx.style.transform = "perspective(400px) rotateY(" + percentX * transformAmount + "deg) rotateX(" + percentY * transformAmount + "deg)";
+        aboutBx.style.transform = "perspective(1000px) rotateY(" + percentX * transformAmount + "deg) rotateX(" + percentY * transformAmount + "deg)";
     }
 
     function handleMouseLeave(){
@@ -197,7 +197,7 @@ aboutContainers.forEach(aboutContainer => {
             aboutBx.style.transition = "";
         }, 100);
 
-        aboutBx.style.transform = "perspective(400px) rotateX(0deg) rotateY(0deg)";
+        aboutBx.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
     }
 
     aboutContainer.addEventListener('mouseenter', handleMouseEnter);
