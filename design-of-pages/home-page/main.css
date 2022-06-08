@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 /* :root{
-    
-} */
+    --header-scroll-height: 200px;
+}*/
 
 html{
     font-size: 100%;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-scroll-height, 120px);
 }
 *, *::before, *::after{
     box-sizing: inherit;

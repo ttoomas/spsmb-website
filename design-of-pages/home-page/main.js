@@ -4,10 +4,14 @@ setTimeout(() => {
     document.body.classList.remove('prealoadAni');
 }, 0);
 
+// Get height of menu and insert it to css
+let nav = document.querySelector('.nav');
+let navScrollHeight = nav.offsetHeight;
+document.documentElement.style.setProperty('--header-scroll-height', navScrollHeight - "30" + "px");
+
 // Mobile menu animation
 const menuHamBx = document.querySelector('.menu__hamBx');
 const body = document.querySelector('body');
-const nav = document.querySelector('.nav');
 
 // If device is larger than 767px, delete inline height
 function getWW(w){
